@@ -25,29 +25,29 @@ root = Tk()
 root.geometry("1000x700")
 
 # Crear el botón contenedor
-btn_relheight = Label(root, bg='#2E4970', fg='white', bd=0)
-btn_relheight.place(relwidth=0.25, relheight=1)
+controlBox = Label(root, bg='#2E4970', fg='white', bd=0)
+controlBox.place(relwidth=0.25, relheight=1)
 
 # Crear los controles
-control1 = create_control(btn_relheight, 0, 0.2, 1, 0.09, 'Gris', '0')
-control2 = create_control(btn_relheight, 0, 0.4, 1, 0.09, 'ROJO', '0')
-control3 = create_control(btn_relheight, 0, 0.6, 1, 0.09, 'VERDE', '0')
-control4 = create_control(btn_relheight, 0, 0.8, 1, 0.09, 'AZUL', '0')
+control1 = create_control(controlBox, 0, 0.2, 1, 0.09, 'Gris', '0')
+control2 = create_control(controlBox, 0, 0.4, 1, 0.09, 'ROJO', '0')
+control3 = create_control(controlBox, 0, 0.6, 1, 0.09, 'VERDE', '0')
+control4 = create_control(controlBox, 0, 0.8, 1, 0.09, 'AZUL', '0')
 
-btn_relx=Label(root, text="Imagen original", bg='#FF00FB', fg='white', bd=0)
-btn_relx.place(relwidth=0.40, relheight=0.5, relx=0.25)
+originalBox=Label(root, text="Imagen original", bg='#FF00FB', fg='white', bd=0)
+originalBox.place(relwidth=0.40, relheight=0.5, relx=0.25)
 
-btn_rely=Label(root, text="Imagen blanco y negro", bg='#67D7E5', fg='white', bd=0)
-btn_rely.place(relwidth=0.40, relheight=0.5,relx=0.25, rely=0.5)
+bwBox=Label(root, text="Imagen blanco y negro", bg='#67D7E5', fg='white', bd=0)
+bwBox.place(relwidth=0.40, relheight=0.5,relx=0.25, rely=0.5)
 # 35
-btn_rely=Label(root, text="Banda Roja", bg='#FA3004', fg='white', bd=0)
-btn_rely.place(relwidth=0.35, relheight=0.33,relx=0.65)
+redBox=Label(root, text="Banda Roja", bg='#FA3004', fg='white', bd=0)
+redBox.place(relwidth=0.35, relheight=0.33,relx=0.65)
 
-btn_rely=Label(root, text="Banda Verde", bg='#00FF13', fg='white', bd=0)
-btn_rely.place(relwidth=0.35, relheight=0.33,relx=0.65, rely=0.33)
+greenBox=Label(root, text="Banda Verde", bg='#00FF13', fg='white', bd=0)
+greenBox.place(relwidth=0.35, relheight=0.33,relx=0.65, rely=0.33)
 
-btn_rely=Label(root, text="Banda Azul", bg='#0013FF', fg='white', bd=0)
-btn_rely.place(relwidth=0.35, relheight=0.33,relx=0.65, rely=0.66)
+blueBox=Label(root, text="Banda Azul", bg='#0013FF', fg='white', bd=0)
+blueBox.place(relwidth=0.35, relheight=0.33,relx=0.65, rely=0.66)
 
 
 
