@@ -1,101 +1,38 @@
-import tkinter as tk
-from tkinter import ttk
+from tkinter import *
 
+def create_control(root, relx, rely, relwidth, relheight, text, default):
+    # Crear el marco contenedor
+    container = Label(root)
+    container.place(relx=relx, rely=rely, relwidth=relwidth, relheight=relheight)
+    
+    # Crear la etiqueta
+    label = Label(container, text=text)
+    label.place(relx=0, rely=0.3, relwidth=0.1)
+    
+    # Crear el control deslizante
+    slider = Scale(container, from_=0, to=255, tickinterval=51, orient=HORIZONTAL)
+    slider.place(relx=0.15, relwidth=0.6)
+    
+    # Crear la entrada
+    entry = Entry(container)
+    entry.place(relx=0.8, rely=0.3, relwidth=0.15)
+    entry.insert(0, default)
+    
+    return container, slider, entry
 
-# root window
-root = tk.Tk()
-root.geometry('300x200')
-root.resizable(False, False)
-root.title('Slider Demo')
+# Crear la raíz de la aplicación
+root = Tk()
+root.geometry("1000x700")
 
+# Crear el botón contenedor
+btn_relheight = Label(root, bg='#2E4970', fg='white', bd=0)
+btn_relheight.place(relwidth=0.25, relheight=1)
 
-root.columnconfigure(0, weight=1)
-root.columnconfigure(1, weight=3)
+# Crear los controles
+control1 = create_control(btn_relheight, 0, 0.2, 1, 0.09, 'Gris', '0')
+control2 = create_control(btn_relheight, 0, 0.4, 1, 0.09, 'ROJO', '0')
+control3 = create_control(btn_relheight, 0, 0.6, 1, 0.09, 'VERDE', '0')
+control4 = create_control(btn_relheight, 0, 0.8, 1, 0.09, 'AZUL', '0')
 
-
-# slider current value
-current_value = tk.DoubleVar()
-
-
-def get_current_value():
-    return '{: .2f}'.format(current_value.get())
-
-
-def slider_changed(event):
-    value_label.configure(text=get_current_value())
-
-
-# label for the slider
-slider_label = ttk.Label(
-    root,
-    text='Slider:'
-)
-
-slider_label.grid(
-    column=0,
-    row=0,
-    sticky='w'
-)
-
-#  slider
-slider = ttk.Scale(
-    root,
-    from_=0,
-    to=100,
-    orient='horizontal',  # vertical
-    command=slider_changed,
-    variable=current_value
-)
-
-slider.grid(
-    column=1,
-    row=0,
-    sticky='we'
-)
-
-# current value label
-current_value_label = ttk.Label(
-    root,
-    text='Current Value:'
-)
-
-current_value_label.grid(
-    row=1,
-    columnspan=2,
-    sticky='n',
-    ipadx=10,
-    ipady=10
-)
-
-# value label
-value_label = ttk.Label(
-    root,
-    text=get_current_value()
-)
-value_label.grid(
-    row=2,
-    columnspan=2,
-    sticky='n'
-)
-
-
+# Ejecutar la aplicación
 root.mainloop()
-
-
-# from tkinter import *
-
-# def show_values():
-#     print (w1.get(), w2.get())
-
-# master = Tk()
-# w1 = Scale(master, from_=0, to=42, tickinterval=8)
-# w1.set(19)
-# w1.pack()
-# w2 = Scale(master, from_=0, to=200, length=600,tickinterval=10, orient=HORIZONTAL)
-# # w2 = Scale(master, from_=0, to=200,tickinterval=10, orient=HORIZONTAL)
-# w2.set(23)
-# w2.pack()
-# Button(master, text='Show', command=show_values).pack()
-
-# mainloop()
-
