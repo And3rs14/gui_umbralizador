@@ -2,7 +2,7 @@ from tkinter import *
 
 def create_control(root, relx, rely, relwidth, relheight, text, default):
     # Crear el marco contenedor
-    container = Label(root, bg='#2E4970', fg='white', bd=0)
+    container = Label(root)
     container.place(relx=relx, rely=rely, relwidth=relwidth, relheight=relheight)
     
     # Crear la etiqueta
@@ -25,7 +25,7 @@ root = Tk()
 root.geometry("1000x700")
 
 # Crear el botón contenedor
-btn_relheight = Label(root, text="Controles")
+btn_relheight = Label(root, bg='#2E4970', fg='white', bd=0)
 btn_relheight.place(relwidth=0.25, relheight=1)
 
 # Crear los controles
