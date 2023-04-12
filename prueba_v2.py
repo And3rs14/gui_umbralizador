@@ -31,14 +31,14 @@ root = Tk()
 root.geometry("1000x700")
 
 # Cargar las imágenes con cv2
-# Reemplaza con la ruta de tu imagen
+# Carga la imagen
 original_image = cv2.imread(
-    'imagenes/Captura de pantalla 2023-02-07 123437.png')
-# Reemplaza con la ruta de tu imagen en blanco y negro
-bw_image = cv2.imread('imagenes/Captura de pantalla 2023-02-07 123437.png')
-red_image = cv2.imread('imagenes/Captura de pantalla 2023-02-07 123437.png')
-green_image = cv2.imread('imagenes/Captura de pantalla 2023-02-07 123437.png')
-blue_image = cv2.imread('imagenes/Captura de pantalla 2023-02-07 123437.png')
+    'imagenes/IMG_20221007_001919_861.jpg')
+
+bw_image = cv2.cvtColor(original_image, cv2.COLOR_BGR2GRAY)
+
+# Obtener las bandas RGB
+blue_image, green_image, red_image = cv2.split(original_image)
 
 # Convertir las imágenes a formato compatible con Tkinter
 original_image = cv2.cvtColor(original_image, cv2.COLOR_BGR2RGB)
