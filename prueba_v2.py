@@ -33,12 +33,12 @@ root.geometry("1000x700")
 # Cargar las imágenes con cv2
 # Reemplaza con la ruta de tu imagen
 original_image = cv2.imread(
-    '/imagenes/Captura de pantalla 2023-02-07 123437.png')
+    'imagenes/Captura de pantalla 2023-02-07 123437.png')
 # Reemplaza con la ruta de tu imagen en blanco y negro
-bw_image = cv2.imread('/imagenes/Captura de pantalla 2023-02-07 123437.png', 0)
-red_image = cv2.imread('/imagenes/Captura de pantalla 2023-02-07 123437.png')
-green_image = cv2.imread('/imagenes/Captura de pantalla 2023-02-07 123437.png')
-blue_image = cv2.imread('/imagenes/Captura de pantalla 2023-02-07 123437.png')
+bw_image = cv2.imread('imagenes/Captura de pantalla 2023-02-07 123437.png')
+red_image = cv2.imread('imagenes/Captura de pantalla 2023-02-07 123437.png')
+green_image = cv2.imread('imagenes/Captura de pantalla 2023-02-07 123437.png')
+blue_image = cv2.imread('imagenes/Captura de pantalla 2023-02-07 123437.png')
 
 # Convertir las imágenes a formato compatible con Tkinter
 original_image = cv2.cvtColor(original_image, cv2.COLOR_BGR2RGB)
@@ -71,20 +71,20 @@ control3 = create_control(controlBox, 0, 0.6, 1, 0.09, 'VERDE', '0')
 control4 = create_control(controlBox, 0, 0.8, 1, 0.09, 'AZUL', '0')
 
 originalBox = Label(root, text="Imagen original",
-                    bg='#FF00FB', fg='white', bd=0)
+                    bg='#FF00FB', fg='white', bd=0, image = original_image)
 originalBox.place(relwidth=0.40, relheight=0.5, relx=0.25)
 
 bwBox = Label(root, text="Imagen blanco y negro",
-              bg='#67D7E5', fg='white', bd=0)
+              bg='#67D7E5', fg='white', bd=0, image = bw_image)
 bwBox.place(relwidth=0.40, relheight=0.5, relx=0.25, rely=0.5)
 # 35
-redBox = Label(root, text="Banda Roja", bg='#FA3004', fg='white', bd=0)
+redBox = Label(root, text="Banda Roja", bg='#FA3004', fg='white', bd=0, image = red_image)
 redBox.place(relwidth=0.35, relheight=0.33, relx=0.65)
 
-greenBox = Label(root, text="Banda Verde", bg='#00FF13', fg='white', bd=0)
+greenBox = Label(root, text="Banda Verde", bg='#00FF13', fg='white', bd=0, image = green_image)
 greenBox.place(relwidth=0.35, relheight=0.33, relx=0.65, rely=0.33)
 
-blueBox = Label(root, text="Banda Azul", bg='#0013FF', fg='white', bd=0)
+blueBox = Label(root, text="Banda Azul", bg='#0013FF', fg='white', bd=0, image = blue_image)
 blueBox.place(relwidth=0.35, relheight=0.33, relx=0.65, rely=0.66)
 
 
