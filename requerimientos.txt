@@ -15,8 +15,21 @@ wincertstore 0.2
 
 conda create -n interfazRGB Python=3.11.2
 
+
+
 Python=3.11.2
 
 Instalaciones:
 conda install -c anaconda tk
 conda install -c anaconda pillow
+
+################### environment with venv ###################
+
+python -m venv app_gui_umbralizador
+.\app_gui_umbralizador\Scripts\activate
+python -m pip install --upgrade pip
+
+pip install tk
+pip install pillow
+
+python 
