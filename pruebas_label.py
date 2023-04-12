@@ -1,24 +1,72 @@
 from tkinter import *
 root = Tk()
-root.geometry("500x500")
+root.geometry("1000x700")
+
 
 btn_relheight = Label(root, text="Controles")
 btn_relheight.place(relwidth=0.25, relheight=1)
 
-btn_relx=Label(root, text="Imagen original")
-btn_relx.place(relwidth=0.40, relheight=0.5, relx=0.25)
+label1 = Label(btn_relheight,bg='#2E4970', fg='white', bd=0)
+label1.place(rely=0.2, relwidth=1,relheight=0.09)
 
-btn_rely=Label(root, text="Imagen blanco y negro")
-btn_rely.place(relwidth=0.40, relheight=0.5,relx=0.25, rely=0.5)
-# 35
-btn_rely=Label(root, text="Banda Roja")
-btn_rely.place(relwidth=0.35, relheight=0.33,relx=0.65)
 
-btn_rely=Label(root, text="Banda Verde")
-btn_rely.place(relwidth=0.35, relheight=0.33,relx=0.65, rely=0.33)
+label = Label(label1, text='Gris')
+label.place(relx=0,rely=0.30, relwidth=0.1)
 
-btn_rely=Label(root, text="Banda Azul")
-btn_rely.place(relwidth=0.35, relheight=0.33,relx=0.65, rely=0.66)
+slider = Scale(label1, from_=0, to=255, tickinterval=51, orient=HORIZONTAL)
+slider.place(relx=0.15, relwidth=0.6)
+
+e1 = Entry(label1)
+e1.place(relx=0.8,rely=0.30,relwidth=0.15)
+e1.insert(0, '0')
+
+# =============================0
+label1 = Label(btn_relheight,bg='#2E4970', fg='white', bd=0)
+label1.place(rely=0.4, relwidth=1,relheight=0.09)
+
+
+label = Label(label1, text='ROJO')
+label.place(relx=0,rely=0.30, relwidth=0.1)
+
+slider = Scale(label1, from_=0, to=255, tickinterval=51, orient=HORIZONTAL)
+slider.place(relx=0.15, relwidth=0.6)
+
+e1 = Entry(label1)
+e1.place(relx=0.8,rely=0.30,relwidth=0.15)
+e1.insert(0, '0')
+# =============================0
+
+# =============================0
+label1 = Label(btn_relheight,bg='#2E4970', fg='white', bd=0)
+label1.place(rely=0.6, relwidth=1,relheight=0.09)
+
+
+label = Label(label1, text='VERDE')
+label.place(relx=0,rely=0.30, relwidth=0.1)
+
+slider = Scale(label1, from_=0, to=255, tickinterval=51, orient=HORIZONTAL)
+slider.place(relx=0.15, relwidth=0.6)
+
+e1 = Entry(label1)
+e1.place(relx=0.8,rely=0.30,relwidth=0.15)
+e1.insert(0, '0')
+# =============================0
+
+# =============================0
+label1 = Label(btn_relheight,bg='#2E4970', fg='white', bd=0)
+label1.place(rely=0.8, relwidth=1,relheight=0.09)
+
+
+label = Label(label1, text='AZUL')
+label.place(relx=0,rely=0.30, relwidth=0.1)
+
+slider = Scale(label1, from_=0, to=255, tickinterval=51, orient=HORIZONTAL)
+slider.place(relx=0.15, relwidth=0.6)
+
+e1 = Entry(label1)
+e1.place(relx=0.8,rely=0.30,relwidth=0.15)
+e1.insert(0, '0')
+# =============================0
 
 
 root.mainloop()
