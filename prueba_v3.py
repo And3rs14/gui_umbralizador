@@ -81,6 +81,8 @@ class MyApp:
         self.label_g.config(text="Banda Verde", bg='#00FF13', fg='white', bd=0, image = self.img_g)
         self.label_b.config(text="Banda Azul", bg='#0013FF', fg='white', bd=0, image = self.img_b)
 
+        print(type(self.label_b))
+
 
 def create_control(root, relx, rely, relwidth, relheight, text, default):
     # Crear el marco contenedor
