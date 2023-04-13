@@ -20,6 +20,7 @@ class MyApp:
 
 
         self.label_original.place(relwidth=0.40, relheight=0.5, relx=0.25)
+
         self.label_bw.place(relwidth=0.40, relheight=0.5, relx=0.25, rely=0.5)
         self.label_r.place(relwidth=0.35, relheight=0.33, relx=0.65)
         self.label_g.place(relwidth=0.35, relheight=0.33, relx=0.65, rely=0.33)
@@ -38,7 +39,9 @@ class MyApp:
         self.control2 = create_control(self.controlBox, 0, 0.4, 1, 0.09, 'ROJO', '0')
         self.control3 = create_control(self.controlBox, 0, 0.6, 1, 0.09, 'VERDE', '0')
         self.control4 = create_control(self.controlBox, 0, 0.8, 1, 0.09, 'AZUL', '0')
+    
 
+    
     def cargar_imagen(self):
         self.ruta = filedialog.askopenfilename(initialdir="/", title="Seleccionar archivo",
                                                filetypes=(("Archivos de imagen", "*.jpg;*.jpeg;*.png;*.bmp"), ("Todos los archivos", "*.*")))
@@ -46,7 +49,11 @@ class MyApp:
         # adrees = 'imagenes/IMG_20221007_001919_861.jpg'
         self.original_image = cv2.imread(self.ruta)
 
-
+        # Open and identify the image
+        self.image = Image.open(self.ruta)
+  
+        # Create a copy of the image and store in variable
+        self.img_copy = self.image.copy()
 
         # Redimensionar imagen para mostrarla en el canvas
         if self.original_image.shape[1] > 400 or self.original_image.shape[0] > 400:
@@ -73,16 +80,43 @@ class MyApp:
         
         
         # Mostrar las imágenes en las etiquetas
-        self.label_original.config(text="Imagen original",
-                            bg='#FF00FB', fg='white', bd=0, image = self.img_original)
-        self.label_bw.config(text="Imagen blanco y negro",
-                    bg='#67D7E5', fg='white', bd=0, image = self.img_bw)
+        # self.label_original.config(text="Imagen original",bg='#FF00FB', fg='white', bd=0, image = self.background_image)
+        
+        self.label_original.bind('<Configure>',self.resize_background)
+
+        # self.label_original.bind('<Configure>', lambda e: self.resize_background(e, self.original_image, self.label_original))
+
+
+        self.label_bw.config(text="Imagen blanco y negro",bg='#67D7E5', fg='white', bd=0, image = self.img_bw)
         self.label_r.config(text="Banda Roja", bg='#FA3004', fg='white', bd=0, image = self.img_r)
         self.label_g.config(text="Banda Verde", bg='#00FF13', fg='white', bd=0, image = self.img_g)
         self.label_b.config(text="Banda Azul", bg='#0013FF', fg='white', bd=0, image = self.img_b)
 
+        # image_label = ttk.Label(
+        #     root,
+        #     image=photo,
+        #     text='Python',
+        #     compound='top'
+        # )
         print(type(self.label_b))
 
+    def resize_background(self, event):
+    
+        # Get the new width and height for image
+        new_width = event.width 
+        new_height = event.height
+        
+        # Resize the image according to new dimensions
+        self.image = self.img_copy.resize((new_width, new_height))
+
+        # Define new image using PhotoImage function
+        self.background_image = ImageTk.PhotoImage(self.image)
+
+        # Change image in the label
+
+        self.label_original.config(text="Imagen original",bg='#FF00FB', fg='white', bd=0, image = self.background_image)
+
+        # self.background.configure(image=self.background_image)
 
 def create_control(root, relx, rely, relwidth, relheight, text, default):
     # Crear el marco contenedor
